@@ -105,4 +105,18 @@ def buscar_vinted(query, country="es", sort="price_high_to_low", page="1", nombr
         
         return datos
     else:
-        return None
+        return 
+    
+def procesar_datos_vinted(df):
+    df_filtrado = df[df['title'].str.contains("Play Station 5|PS5", case=False, na=False)]
+    
+    columnas_a_eliminar = [
+        "discount", "conversion", "badge", "service_fee", "price", "view_count", 
+        "size_title", "content_source", "icon_badges", "item_box", 
+        "search_tracking_params", "photo"
+    ]
+    df_filtrado.drop(columnas_a_eliminar, axis=1, inplace=True)
+    
+    df_filtrado.to_csv("../data/datos_vinted_filtrados.csv", index=False)
+    
+    return df_filtrado

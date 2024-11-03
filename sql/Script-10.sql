@@ -34,23 +34,16 @@ CREATE TABLE IF NOT EXISTS datos_wallpop_limpios (
 
 -- Creación de la tabla datos_vinted_filtrados
 CREATE TABLE IF NOT EXISTS datos_vinted_filtrados (
-    id SERIAL PRIMARY KEY,
-    vinted_id VARCHAR(20),
+    Unnamed_0 SERIAL PRIMARY KEY,
+    id BIGINT NOT NULL,
     title VARCHAR(255),
-    price NUMERIC(10, 2),
     is_visible BOOLEAN,
-    discount NUMERIC(10, 2),
-    currency VARCHAR(10),
-    brand_title VARCHAR(50),
-    user_id JSON,
-    conversion_ NUMERIC(10, 2),
-    service_fee NUMERIC(10, 2),
+    currency CHAR(3),
+    brand_title VARCHAR(255),
+    url_ TEXT,
+    promoted BOOLEAN,
+    favourite_count INT,
+    is_favourite BOOLEAN,
     total_item_price NUMERIC(10, 2),
-    view_count INTEGER,
-    size_title VARCHAR(50),
-    content_source VARCHAR(50),
-    status_ VARCHAR(50),
-    icon_badges JSON,
-    item_box JSON,
-    search_tracking_params JSON
+    status_ VARCHAR(50)
 );
