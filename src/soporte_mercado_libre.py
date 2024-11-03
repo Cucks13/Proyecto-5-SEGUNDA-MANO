@@ -8,7 +8,7 @@ from email import encoders
 import os
 import pandas as pd
 
-def obtener_datos_wallapop_sql():
+def obtener_datos_cash_converters_sql():
     """
     Conecta a la base de datos y extrae los datos filtrados de Wallapop.
     Retorna un DataFrame con los datos.
@@ -22,7 +22,7 @@ def obtener_datos_wallapop_sql():
         port="5432"
     )
     
-    query = "SELECT url_producto FROM wallapop_interesante"
+    query = "SELECT url_producto FROM mercado_libre_interesante"
     df = pd.read_sql_query(query, conn)
     
     # Cerrar conexión
@@ -39,7 +39,7 @@ def generar_pdf(df, output_path="../data/informes_interesantes"):
     pdf.set_font("Arial", size=10)
     
     # Título
-    pdf.cell(200, 10, txt="Datos de Wallapop - Productos PS5", ln=True, align='C')
+    pdf.cell(200, 10, txt="Datos de Cash converters - Productos PS5", ln=True, align='C')
     pdf.ln(10)  # Salto de línea
     
     # Agregar filas de datos
@@ -78,4 +78,3 @@ def enviar_correo_con_adjunto(destinatario, asunto, cuerpo, archivo_adj):
         print("Correo enviado exitosamente.")
     except Exception as e:
         print(f"Error al enviar el correo: {e}")
-

@@ -61,27 +61,7 @@ def create_tables(cursor, conn):
         status VARCHAR(50)
     );
     """
-
-    # Ejecutar los scripts de creación de tablas
-    cursor.execute(create_table_cash_converters)
-    cursor.execute(create_table_mercado_libre)
-    cursor.execute(create_table_wallpop_limpios)
-    cursor.execute(create_table_vinted_filtrados)
-    conn.commit()
-
-# Ejemplo de uso:
-# with conn.cursor() as cursor:
-#     create_tables(cursor, conn)
-# conn.close()
-
-
-
-
-
-
-
-
-
+    
 def bulk_insert_from_csv(file_path, table_name, conn):
     with open(file_path, 'r', encoding='utf-8') as f:
         cursor = conn.cursor()
