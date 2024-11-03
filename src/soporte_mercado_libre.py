@@ -8,7 +8,7 @@ from email import encoders
 import os
 import pandas as pd
 
-def obtener_datos_cash_converters_sql():
+def obtener_datos_mercado_libre_sql():
     """
     Conecta a la base de datos y extrae los datos filtrados de Wallapop.
     Retorna un DataFrame con los datos.
@@ -39,7 +39,7 @@ def generar_pdf(df, output_path="../data/informes_interesantes"):
     pdf.set_font("Arial", size=10)
     
     # Título
-    pdf.cell(200, 10, txt="Datos de Cash converters - Productos PS5", ln=True, align='C')
+    pdf.cell(200, 10, txt="Datos de Mercado Libre - Productos PS5", ln=True, align='C')
     pdf.ln(10)  # Salto de línea
     
     # Agregar filas de datos
