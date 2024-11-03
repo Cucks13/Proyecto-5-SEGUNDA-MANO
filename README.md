@@ -82,3 +82,5 @@ A continuación, se detallan algunos pasos futuros para mejorar y ampliar el alc
 - **Dockerizar el proyecto y lanzarlo desde una Raspberry Pi**: Permitir la ejecución periódica automática de la extracción de datos, así como el envío de notificaciones de forma continua.
 - **Ampliar los filtros de búsqueda en Wallapop**: Incrementar la precisión de los resultados permitiendo una búsqueda más refinada según distintos parámetros.
 - **Mejorar la calidad de los PDFs generados**: Optimizar la generación de documentos PDF para asegurar una mayor claridad y resolución en los informes.
+- **Milanuncios**: Tratar de Scrapear Milanuncios ya que al intentarlo nos salia un error 403, a no ser que evitasemas la utilización de Selenium donde ahi nos salia un error 200 pero solo podiamos extraer 4 datos.  
+- **IA Chatbot**: Estudair la viabilidad de Iniciar la conversación con el vendedor a traves de un Chatbot.
