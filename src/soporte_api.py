@@ -122,13 +122,10 @@ def procesar_datos_vinted(df):
     return df_filtrado
 
 def filtrar_playstation5(input_csv, output_csv):    
-    # Leer el archivo CSV de entrada
     df = pd.read_csv(input_csv)
     
-    # Filtrar filas que contienen "Play Station 5", "PS5" o "PlayStation5" en la columna 'title'
     df_filtrado = df[df['título'].str.contains("Play Station 5|PS5|PlayStation5", case=False, na=False)]
     
-    # Guardar el DataFrame filtrado en el archivo CSV de salida
     df_filtrado.to_csv(output_csv, index=False)
     
     return df_filtrado

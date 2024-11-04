@@ -24,22 +24,22 @@ def traer_productos_cash_converter(url):
 
             if len(lista_productos) > 0:
                 for producto in lista_productos:
-                    # Extraer el título del producto
+                    
                     titulo_elemento = producto.find("div", {"class": "pdp-link"})
                     titulo = titulo_elemento.find("a").text.strip() if titulo_elemento else np.nan
                     list_titulos.append(titulo)
 
-                    # Extraer la descripción del producto (si hay alguna disponible)
+                   
                     descripcion_elemento = producto.find("div", {"class": "status"})
                     descripcion = descripcion_elemento.text.strip() if descripcion_elemento else np.nan
                     list_descripciones.append(descripcion)
 
-                    # Extraer el precio del producto
+                    
                     precio_elemento = producto.find("div", {"class": "principal"})
                     if precio_elemento:
-                        # Intentamos obtener el precio desde el atributo `data-price`
+                        
                         precio = precio_elemento.get("data-price", "").strip()
-                        if not precio:  # Si no hay `data-price`, tomamos el texto directamente
+                        if not precio:  
                             precio = precio_elemento.text.strip().replace("€", "").replace(",", ".")
                     else:
                         precio = np.nan
@@ -79,21 +79,21 @@ def traer_productos_mercado_libre(url):
 
             if lista_productos:
                 for producto in lista_productos:
-                    # Extraer el título del producto
+                   
                     titulo_elemento = producto.find("h2", {"class": "ui-search-item__title"})
                     titulo = titulo_elemento.text.strip() if titulo_elemento else "Título no disponible"
                     list_titulos.append(titulo)
 
-                    # Extraer el enlace del producto
+                    
                     link_elemento = producto.find("a", {"class": "ui-search-link"})
                     link = link_elemento['href'] if link_elemento else "Enlace no disponible"
                     list_links.append(link)
 
-                    # Extraer la descripción del producto (usualmente no está presente en Mercado Libre, usamos el título como descripción alternativa)
-                    descripcion = titulo  # Usamos el título como descripción para simplificar
+                  
+                    descripcion = titulo  
                     list_descripciones.append(descripcion)
 
-                    # Extraer el precio del producto
+            
                     precio_elemento = producto.find("div", {"class": "poly-price__current"})
                     if precio_elemento:
                         precio_texto = precio_elemento.find("span", {"class": "andes-money-amount__fraction"})
